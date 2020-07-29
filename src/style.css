@@ -84,3 +84,8 @@ input {
   opacity: 50%;
   font-size: 15px;
 }
+
+a {
+  color: white;
+  font-size: 15px;
+}
