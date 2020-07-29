@@ -1,0 +1,86 @@
+.currentWeather {
+  max-width: 500px;
+  border: 3px solid white;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 20px;
+  background-image: linear-gradient(to top, #4f86ec 0%, #6991c7 100%);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 400px;
+}
+input {
+  border: 2px solid white;
+  border-radius: 30px;
+  background: #6b93c8;
+  color: white;
+  opacity: 60%;
+}
+
+#current-location {
+  border: 2px solid white;
+  border-radius: 30px;
+  background: #6b93c8;
+  color: white;
+  opacity: 60%;
+}
+
+.city {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px;
+  color: white;
+}
+#time {
+  font-size: 18px;
+}
+.fa-sun {
+  font-size: 64px;
+  color: #fbd46d;
+}
+.weatherDescription {
+  font-size: 18px;
+}
+
+#temp {
+  font-size: 36px;
+}
+.furtherInfo {
+  margin-top: 30px;
+}
+.details {
+  line-height: 18px;
+}
+.specs {
+  font-size: 15px;
+}
+.deets {
+  font-size: 30px;
+}
+.fiveDay {
+  font-size: 16px;
+  text-align: center;
+  max-width: 800px;
+  margin: 10px;
+  color: white;
+}
+.fa-cloud-showers-heavy {
+  font-size: 22px;
+  padding: 10px;
+  color: white;
+}
+.temperature {
+  padding: 10px;
+  color: white;
+}
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.signature {
+  text-align: center;
+  color: white;
+  opacity: 50%;
+  font-size: 15px;
+}
