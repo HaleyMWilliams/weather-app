@@ -1,4 +1,5 @@
 function showWeather(response) {
+  console.log(response.data);
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#temp-current").innerHTML = `${Math.round(
@@ -17,6 +18,12 @@ function showWeather(response) {
 
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
+
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(city) {

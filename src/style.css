@@ -20,6 +20,11 @@ input {
   font-size: 48px;
 }
 
+#weather-icon {
+  display: block;
+  margin: 0 auto;
+}
+
 #current-location {
   border: 2px solid white;
   border-radius: 30px;
