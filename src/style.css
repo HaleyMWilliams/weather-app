@@ -3,6 +3,7 @@
   border: 3px solid white;
   border-radius: 30px;
   padding: 20px;
+  margin: 0 auto;
   background-image: linear-gradient(to top, #4f86ec 0%, #6991c7 100%);
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 400px;
@@ -55,14 +56,14 @@ input {
 .furtherInfo {
   margin-top: 30px;
 }
-.details {
-  line-height: 18px;
-}
+
 .specs {
   font-size: 15px;
+  line-height: 18px;
 }
 .deets {
   font-size: 30px;
+  line-height: 18px;
 }
 .fiveDay {
   font-size: 16px;

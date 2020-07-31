@@ -1,5 +1,4 @@
 function showWeather(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#temp-current").innerHTML = `${Math.round(
