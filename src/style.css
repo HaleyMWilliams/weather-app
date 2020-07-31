@@ -3,7 +3,6 @@
   border: 3px solid white;
   border-radius: 30px;
   padding: 20px;
-  margin: 20px;
   background-image: linear-gradient(to top, #4f86ec 0%, #6991c7 100%);
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 400px;
@@ -17,7 +16,7 @@ input {
 }
 
 #temp-current {
-  font-size: 48px;
+  font-size: 40px;
 }
 
 #weather-icon {
@@ -42,10 +41,10 @@ input {
 #time {
   font-size: 18px;
 }
-.fa-sun {
-  font-size: 64px;
-  color: #fbd46d;
+.currentTemp {
+  font-size: 18px;
 }
+
 .weatherDescription {
   font-size: 18px;
 }
