@@ -16,6 +16,10 @@ input {
   opacity: 60%;
 }
 
+#temp-current {
+  font-size: 48px;
+}
+
 #current-location {
   border: 2px solid white;
   border-radius: 30px;

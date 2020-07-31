@@ -1,16 +1,21 @@
 function showWeather(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
 
-  document.querySelector("#temp").innerHTML = response.data.main.temp;
+  document.querySelector("#temp-current").innerHTML = `${Math.round(
+    response.data.main.temp
+  )}°`;
 
-  document.querySelector("#feels-like").innerHTML =
-    response.data.main.feels_like;
+  document.querySelector("#feels-like").innerHTML = `${Math.round(
+    response.data.main.feels_like
+  )}°`;
 
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `${response.data.main.humidity}%`;
 
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
+  document.querySelector("#wind").innerHTML = `${response.data.wind.speed} mph`;
 
-  document.querySelector(".weatherDescription").innerHTML =
+  document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
 }
 
