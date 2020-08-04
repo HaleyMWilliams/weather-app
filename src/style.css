@@ -53,8 +53,26 @@ input {
 #temp {
   font-size: 36px;
 }
+
+#space {
+  font-size: 14px;
+}
+
+.weatherTemperature {
+  font-size: 14px;
+  color: white;
+}
+.weatherTemperature .active {
+  cursor: default;
+}
+
+.weatherTemperature .active:hover {
+  text-decoration: none;
+}
+
 .furtherInfo {
-  margin-top: 30px;
+  margin-top: 20px;
+  padding: 0px;
 }
 
 .specs {
@@ -94,7 +112,6 @@ input {
   font-size: 15px;
 }
 
-a {
+.signature a {
   color: white;
-  font-size: 15px;
 }

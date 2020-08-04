@@ -1,19 +1,24 @@
 function showWeather(response) {
+  let farenheitCurrentTemp = response.data.main.temp;
+  let farenheitFeelsLike = response.data.main.feels_like;
+
   document.querySelector("#current-city").innerHTML = response.data.name;
 
   document.querySelector("#temp-current").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°`;
+    farenheitCurrentTemp
+  )}`;
 
   document.querySelector("#feels-like").innerHTML = `${Math.round(
-    response.data.main.feels_like
-  )}°`;
+    farenheitFeelsLike
+  )}<small>°F</small>`;
 
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;
 
-  document.querySelector("#wind").innerHTML = `${response.data.wind.speed} mph`;
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )} mph`;
 
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].description;
@@ -40,8 +45,8 @@ function handleSubmit(event) {
 
 function searchLocation(position) {
   let apiKey = "f965be3a8c73441341db743d519d1c93";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  let units = "&units=imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}${units}`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -160,6 +165,33 @@ function showDateTime(event) {
   time.innerHTML = `${day} ${hour}:${minute}`;
 }
 
+function displayCelsius(event) {
+  event.preventDefault();
+  let currentTempElement = document.querySelector("#temp-current");
+  let currentCelsius = ((farenheitCurrentTemp - 32) * 5) / 9;
+  currentTempElement.innerHTML = Math.round(currentCelsius);
+
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let feelsLikeCelsius = ((farenheitFeelsLike - 32) * 5) / 9;
+  feelsLikeElement.innerHTML = `${Math.round(
+    feelsLikeCelsius
+  )}<small>°C</small`;
+}
+
+function displayFarenheit(event) {
+  event.preventDefault();
+}
+
+let farenheitCurrentTemp = null;
+
+let farenheitFeelsLike = null;
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
 let newCityForm = document.querySelector("#search-form");
 newCityForm.addEventListener("submit", handleSubmit);
 
@@ -167,3 +199,5 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 showDateTime();
+
+searchCity("New York");
