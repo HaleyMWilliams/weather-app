@@ -99,13 +99,13 @@ input {
   color: white;
 }
 .forecastIcon {
-  font-size: 22px;
-  padding: 10px;
-  color: white;
+  display: block;
+  text-align: center;
+  width: 85px;
 }
 .temperature {
-  padding: 10px;
   color: white;
+  text-align: center;
 }
 .scrolling-wrapper-flexbox {
   display: flex;

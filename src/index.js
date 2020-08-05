@@ -107,6 +107,104 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = [
+    "12",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+  ];
+
+  let minutes = [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "56",
+    "57",
+    "58",
+    "59",
+    "60",
+  ];
+
+  let hour = hours[date.getHours()];
+  let minute = minutes[date.getMinutes()];
+  return `${hour}:${minute}`;
+}
+
 function showWeather(response) {
   farenheitCurrentTemp = response.data.main.temp;
   farenheitFeelsLike = response.data.main.feels_like;
@@ -143,7 +241,24 @@ function showWeather(response) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecastElement = document.querySelector("#three-hour-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+   <div class="col-2.4" id="three-hour-forecast">
+      <p >${formatHours(forecast.dt * 1000)}</p>
+      <img src="https://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png" class="forecastIcon" id="day-one-icon"><br />
+      <p class="temperature" id="forecast-temp">${Math.round(
+        forecast.main.temp
+      )}°</p>
+   </div>
+  `;
+  }
 }
 
 function searchCity(city) {
