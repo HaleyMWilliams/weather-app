@@ -1,6 +1,6 @@
 function showWeather(response) {
-  let farenheitCurrentTemp = response.data.main.temp;
-  let farenheitFeelsLike = response.data.main.feels_like;
+  farenheitCurrentTemp = response.data.main.temp;
+  farenheitFeelsLike = response.data.main.feels_like;
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
@@ -180,6 +180,13 @@ function displayCelsius(event) {
 
 function displayFarenheit(event) {
   event.preventDefault();
+  let currentTempElement = document.querySelector("#temp-current");
+  currentTempElement.innerHTML = Math.round(farenheitCurrentTemp);
+
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = `${Math.round(
+    farenheitFeelsLike
+  )}<small>°C</small`;
 }
 
 let farenheitCurrentTemp = null;
