@@ -171,11 +171,14 @@ function displayCelsius(event) {
   let currentCelsius = ((farenheitCurrentTemp - 32) * 5) / 9;
   currentTempElement.innerHTML = Math.round(currentCelsius);
 
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+
   let feelsLikeElement = document.querySelector("#feels-like");
   let feelsLikeCelsius = ((farenheitFeelsLike - 32) * 5) / 9;
   feelsLikeElement.innerHTML = `${Math.round(
     feelsLikeCelsius
-  )}<small>°C</small`;
+  )}<span class="smaller">°C</span>`;
 }
 
 function displayFarenheit(event) {
@@ -183,10 +186,13 @@ function displayFarenheit(event) {
   let currentTempElement = document.querySelector("#temp-current");
   currentTempElement.innerHTML = Math.round(farenheitCurrentTemp);
 
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `${Math.round(
     farenheitFeelsLike
-  )}<small>°C</small`;
+  )}<span class="smaller">°F</span>`;
 }
 
 let farenheitCurrentTemp = null;

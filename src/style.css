@@ -62,12 +62,20 @@ input {
   font-size: 14px;
   color: white;
 }
-.weatherTemperature .active {
+
+.active {
   cursor: default;
+  font-size: 20px;
+  color: white;
 }
 
-.weatherTemperature .active:hover {
+.active:hover {
   text-decoration: none;
+  color: white;
+}
+
+.smaller {
+  font-size: 14px;
 }
 
 .furtherInfo {
