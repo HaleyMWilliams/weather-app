@@ -253,9 +253,7 @@ function displayForecast(response) {
       <p >${formatHours(forecast.dt * 1000)}</p>
       <img src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
-      }@2x.png" class="forecastIcon" id="day-one-icon"><br />
-      <p class="temperature" id="forecast-temp">
-      ${Math.round(farenheitForecastTemp)}°F
+      }@2x.png" class="forecastIcon" id="day-one-icon">
       </p>
    </div>
   `;
