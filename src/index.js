@@ -279,7 +279,7 @@ function handleSubmit(event) {
 function searchLocation(position) {
   let apiKey = "f965be3a8c73441341db743d519d1c93";
   let units = "&units=imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}${units}&appid=${apiKey}`;
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}${units}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
