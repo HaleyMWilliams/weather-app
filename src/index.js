@@ -211,9 +211,9 @@ function showWeather(response) {
 
   document.querySelector("#current-city").innerHTML = response.data.name;
 
-  document.querySelector("#time").innerHTML = formatDate(
+  document.querySelector("#time").innerHTML = `Last Updated: ${formatDate(
     response.data.dt * 1000
-  );
+  )}`;
   document.querySelector("#temp-current").innerHTML = `${Math.round(
     farenheitCurrentTemp
   )}`;
@@ -245,17 +245,18 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 6; index++) {
+  for (let index = 0; index <= 4; index++) {
     forecast = response.data.list[index];
+    farenheitForecastTemp = forecast.main.temp;
     forecastElement.innerHTML += `
    <div class="col-2.4" id="three-hour-forecast">
       <p >${formatHours(forecast.dt * 1000)}</p>
       <img src="https://openweathermap.org/img/wn/${
         forecast.weather[0].icon
       }@2x.png" class="forecastIcon" id="day-one-icon"><br />
-      <p class="temperature" id="forecast-temp">${Math.round(
-        forecast.main.temp
-      )}°</p>
+      <p class="temperature" id="forecast-temp">
+      ${Math.round(farenheitForecastTemp)}°F
+      </p>
    </div>
   `;
   }
@@ -303,6 +304,10 @@ function displayCelsius(event) {
   feelsLikeElement.innerHTML = `${Math.round(
     feelsLikeCelsius
   )}<span class="smaller">°C</span>`;
+
+  let forecastTempElement = document.querySelector("#forecast-temp");
+  let currentCelsiusForecast = ((farenheitForecastTemp - 32) * 5) / 9;
+  forecastTempElement.innerHTML = `${Math.round(currentCelsiusForecast)}°C`;
 }
 
 function displayFarenheit(event) {
@@ -317,11 +322,16 @@ function displayFarenheit(event) {
   feelsLikeElement.innerHTML = `${Math.round(
     farenheitFeelsLike
   )}<span class="smaller">°F</span>`;
+
+  let forecastTempElement = document.querySelector("#forecast-temp");
+  forecastTempElement.innerHTML = `${Math.round(farenheitForecastTemp)}°F`;
 }
 
 let farenheitCurrentTemp = null;
 
 let farenheitFeelsLike = null;
+
+let farenheitForecastTemp = null;
 
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheit);
